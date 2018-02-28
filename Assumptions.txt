@@ -1,0 +1,33 @@
+I did a superclass (Image) and stored all parameters and functions in it.
+Then i did subclasses for the three image types, the subclasses does not add any parameters or functions.
+I can argue that it is a bit unnecessary to have subclasses as they do not add anything to Image, but for the purpose of this task,
+which is to prove my skills in coding and understanding of object orientation, i did subclasses anyway. 
+It also makes me feel better as it eases further development, and hopefully it is easier to understand the code. 
+
+As JAVAs support of the console troubles the ability to end program on entering "Q" without pressing Enter after
+I kept it as a regular input, this means the Q will be visible after program termination and the program output
+does not match the example run in instructions. Although, i considered it a minor issue and left it like so.
+
+A bigger issue is the calculated value, my size does not match the example run size. It is off by 31 bytes.
+I might have misread instructions or something but here are my manual calculations and how i interpreted the instructions:
+
+-------------------------------------------------------------------------------------
+J 2048 1024  		419 430 + 104 857 + 26 214 + 6 553 = 557054
+JPG 5000 3000     	3 000 000 + 750 000 + 187 500 + 46875 + 11 718 = 3996093
+G 1 2				(557054 + 3996093) / ln(2 + 3) = 2 829 029
+JP2 1000 2000		800 000/ln(ln(1000*2000+16)) =  299 093
+BMP 2000 1000		2 000 000 + 500 000 + 125 000 = 2 625 000
+
+SUM:  2 829 029 + 299 093 + 2 625 000 = 5 753 122 bytes
+-------------------------------------------------------------------------------------
+The manual calculation match my programs calculation which means i either misunderstood instructions, missed some instruction, or example is incorrect.
+
+For the grouping I did a List that stores a list of images. Each list represents a group, each group consists of a list of images. 
+To make sure an image can not be in two groups and to not care about its regular size i put a Boolean in Image stating if it belongs to a group or not. 
+Instructions says to make a stack, but i figured List is an interface to stack and as i prefer List i used it.
+
+Last assumption is regarding the word "truncated" which means i will just cut off all decimals instead of rounding up or down. 
+I want to argue that it would be more reasonable to round up as we want to calculate the use of bytes. But the program now does truncation 
+by casting divisions to integer using (int).
+
+// Edvin M
